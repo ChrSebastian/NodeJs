@@ -2,10 +2,10 @@
   "name": "05.javascript_tut_book",
   "version": "1.0.0",
   "description": "Complete Node.js Guide",
-  "main": "nodejs/app.js",
+  "main": "app.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start-server": "nodemon nodejs/app.js"
+    "start-server": "nodemon /app.js"
   },
   "author": "Tilica",
   "license": "ISC",
