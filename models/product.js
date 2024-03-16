@@ -2,7 +2,7 @@ const fs = require("fs");
 const path = require("path");
 
 const p = path.join(
-  (module.exports = path.dirname(require.main.filename)),
+  path.dirname(process.mainModule.filename),
   "data",
   "products.json"
 );
