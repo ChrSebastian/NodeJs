@@ -1,5 +1,1 @@
 juxtapunere
-
-mongoDb connection string:
-Replace <password> with the password for the Bastyze98 user. Ensure any option params are URL encoded.
-mongodb+srv://Bastyze98:<password>@cluster0.qg5czrk.mongodb.net/
