@@ -1,3 +1,4 @@
+const { ObjectID } = require("mongodb"); // Import ObjectID from mongodb package
 const getDb = require("../util/database").getDb;
 
 class Product {
@@ -26,6 +27,19 @@ class Product {
       .then((products) => {
         console.log(products);
         return products;
+      })
+      .catch((err) => console.log(err));
+  }
+
+  static findById(prodId) {
+    const db = getDb();
+    return db
+      .collection("products")
+      .find({ _id: new ObjectID(prodId) }) // Use ObjectID constructor
+      .next()
+      .then((product) => {
+        console.log(product);
+        return product;
       })
       .catch((err) => console.log(err));
   }
