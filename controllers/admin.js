@@ -1,4 +1,3 @@
-const { ObjectID } = require("mongodb");
 const Product = require("../models/product");
 
 exports.getAddProduct = (req, res, next) => {
@@ -25,6 +24,7 @@ exports.postAddProduct = (req, res, next) => {
   product
     .save()
     .then((result) => {
+      // console.log(result);
       console.log("Created Product");
       res.redirect("/admin/products");
     })
@@ -40,6 +40,7 @@ exports.getEditProduct = (req, res, next) => {
   }
   const prodId = req.params.productId;
   Product.findById(prodId)
+    // Product.findById(prodId)
     .then((product) => {
       if (!product) {
         return res.redirect("/");
@@ -66,7 +67,7 @@ exports.postEditProduct = (req, res, next) => {
     updatedPrice,
     updatedDesc,
     updatedImageUrl,
-    prodId // Just use the id directly, no need to create an ObjectID instance
+    prodId
   );
   product
     .save()
@@ -90,10 +91,10 @@ exports.getProducts = (req, res, next) => {
 };
 
 exports.postDeleteProduct = (req, res, next) => {
-  const prodId = req.body.prodId;
+  const prodId = req.body.productId;
   Product.deleteById(prodId)
     .then(() => {
-      console.log("DESTROYED PRODUCT!");
+      console.log("DESTROYED PRODUCT");
       res.redirect("/admin/products");
     })
     .catch((err) => console.log(err));
